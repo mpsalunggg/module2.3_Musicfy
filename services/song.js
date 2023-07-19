@@ -4,6 +4,10 @@ const getAllSongs = () => {
   return Song.getAllSongs()
 }
 
+const getSongById = (songId) => {
+  return Song.getSongById(songId)
+}
+
 const addSong = (song) => {
   return Song.addSong(song)
 }
@@ -20,15 +24,16 @@ const deleteSong = (songId) => {
   return Song.deleteSong(songId)
 }
 
-const sortSongsByPlayCount = (order) => {
-  return Song.sortSongsByPlayCount(order)
+const sortSongsByPlayCount = (favsong) => {
+  return Song.sortSongsByPlayCount(favsong)
 }
 
 module.exports = {
   getAllSongs,
+  getSongById,
   addSong,
   updateSong,
   incrementPlayCount,
   deleteSong,
-  sortSongsByPlayCount
+  sortSongsByPlayCount,
 }

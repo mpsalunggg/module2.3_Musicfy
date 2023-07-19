@@ -54,12 +54,14 @@ selectOption.addEventListener('change', async () => {
     url += '/sorted?favsong=asc'
   } else if (selectedValue === 'dsc') {
     url += '/sorted?favsong=dsc'
+  } else {
+    url += '/'
   }
 
   try {
     const response = await fetch(url)
     const data = await response.json()
-    displaySongs(data.sortedSongs)
+    displaySongs(data.sortedSongs ? data.sortedSongs : data.songs)
     console.log(data)
   } catch (error) {
     console.log(error)
@@ -129,9 +131,26 @@ const displaySongs = (songs) => {
 }
 
 const editSong = async (song) => {
+  const dataSong = {}
   const newTitle = prompt('Masukan Judul Baru!')
   const newArtist = prompt('Masukan Artis Baru!')
   const newUrl = prompt('Masukkan Url Baru!')
+  const newImgUrl = prompt('Masukkan Image Url Baru!')
+
+  try {
+    const response = await fetch(`http://localhost:3001/songs/${song.id}`)
+    const data = await response.json()
+    dataSong.title = await data.songs.title
+    dataSong.artist = await data.songs.artist
+    dataSong.url = await data.songs.url
+    dataSong.img_url = await data.songs.img_url
+    dataSong.play = await data.songs.play
+  } catch(err) {
+    console.log(err)
+  }
+  
+  console.log('detail data', dataSong)
+  // console.log(dataSong)
 
   errorMsg.innerText = 'Lagi Proses Edit Nich...'
   try {
@@ -141,9 +160,11 @@ const editSong = async (song) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: newTitle,
-        artist: newArtist,
-        url: newUrl,
+        title: newTitle ? newTitle : dataSong.title,
+        artist: newArtist ? newArtist : dataSong.artist,
+        url: newUrl ? newUrl : dataSong.url,
+        img_url: newImgUrl ? newImgUrl : dataSong.img_url,
+        play: dataSong.play
       }),
     })
 
