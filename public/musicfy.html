@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>🎵 Musicfy</h1>
+      </div>
+      <div>
+        <input type="text" id="title" name="title" placeholder="Judul" class="input" />
+        <input type="text" id="artist" name="artist" placeholder="Artis(ex: keshi, ...)" class="input" />
+        <input type="text" id="duration" name="url" placeholder="Url Music" class="input" />
+        <input type="text" id="gambar" name="gambar" placeholder="Img Music" class="input" />
+        <button id="createSong">+ Add To Playlist</button>
+      </div>
+      <di class="container-sorting">
+        <p>Sorting your playlist!</p>
+        <select id="sorting">
+          <option value="asc">Less popular song</option>
+          <option value="dsc">Popular Song</option>
+        </select>
+      </di>
+    </div>
+
+    <div id="msg" class="msg"></div>
+
+    <div id="output"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
