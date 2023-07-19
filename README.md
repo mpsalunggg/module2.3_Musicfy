@@ -1,4 +1,5 @@
 # Module 2.3 - Musicfy
+![Gambar Project](./public/assets/project.png)
 
 - Muhamad Putra Satria
 - GG3FSGP0442
