@@ -14,6 +14,13 @@ Anda dapat mendapatkan salinan proyek ini dengan melakukan clone dari repository
 git clone https://github.com/mpsalunggg/module2.3_Musicfy.git
 ```
 
+### Install NPM
+Lakukan NPM install untuk mengunduh semua package yang digunakan
+
+```bash
+npm install
+```
+
 ### Install Nodemon (Opsional)
 
 Bisa menginstall nodemon secara global
